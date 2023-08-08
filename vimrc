@@ -116,6 +116,9 @@ map sn :MarkdownPreviewStop<CR>
 
 
 set termguicolors
+
+"opaque
 "let g:SnazzyTransparent = 1
+
 color snazzy
 let g:airline_theme='base16_dracula'
