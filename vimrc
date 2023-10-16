@@ -7,7 +7,6 @@
 "
 
 set nocompatible
-
 "set autoindent
 "set cindent
 
@@ -47,32 +46,39 @@ au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g
 "set <LEADER> as <SPACE>
 let mapleader=" "
 
+"split
 map sl :set splitright<CR>:vsplit<CR>
 map sh :set nosplitright<CR>:vsplit<CR>
 map sj :set nosplitright<CR>:split<CR>
 map sk :set splitright<CR>:split<CR>
-
+"switch plates
 map <LEADER>l <C-w>l
 map <LEADER>h <C-w>h
 map <LEADER>j <C-w>j
 map <LEADER>k <C-w>k
-
+"adjust plate
 map <up> :res +5<CR>
 map <down> :res -5<CR>
 map <left> :vertical resize-5<CR>
 map <right> :vertical resize+5<CR>
 
+"for faster navigate
+noremap <C-j> J
+map J 5j
+map K 5k
+
 map tx :r !figlet 
 
+nmap Y "+y<CR>
 
 call plug#begin('~/.vim/plugged')
-
+"appearance
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'connorholyday/vim-snazzy'
 
 "auto complete
-"Plug 'neoclide/coc.nvim', {'branch': 'release'}
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
 
 Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
 
@@ -118,7 +124,7 @@ map sn :MarkdownPreviewStop<CR>
 set termguicolors
 
 "opaque
-"let g:SnazzyTransparent = 1
+let g:SnazzyTransparent = 1
 
 color snazzy
 let g:airline_theme='base16_dracula'
