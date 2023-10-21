@@ -76,18 +76,41 @@ call plug#begin('~/.vim/plugged')
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'connorholyday/vim-snazzy'
+Plug 'NLKNguyen/papercolor-theme'
+Plug 'ayu-theme/ayu-vim'
+Plug 'jacoborus/tender.vim'
 
 "auto complete
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 
 Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
+Plug 'bling/vim-bufferline'
 
 "markdown
 Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install()}, 'for': ['markdown', 'vim-plug'] }
 Plug 'dhruvasagar/vim-table-mode', {'on': 'TableModeToggle'}
 Plug 'vimwiki/vimwiki'
 
+Plug 'mhinz/vim-startify'
+
+"Plug 'leafOfTree/vim-matchtag'
+
+Plug 'lilydjwg/fcitx.vim'
+
 call plug#end()
+
+"  Dress up my vim
+map <LEADER>c1 :set background=dark<CR>:colorscheme snazzy<CR>:AirlineTheme base16_dracula<CR>
+map <LEADER>c2 :set background=light<CR>:colorscheme ayu<CR>:AirlineTheme ayu_light<CR>
+map <LEADER>c3 :set background=light<CR>:colorscheme tender<CR>:AirlineTheme tender<CR>
+
+set termguicolors
+
+let ayucolor="light"
+"opaque
+let g:SnazzyTransparent = 1
+color snazzy
+let g:airline_theme='base16_dracula'
 
 "insert
 let &t_SI = "\<Esc>]50;CursorShape=1\x7"
@@ -96,7 +119,6 @@ let &t_EI = "\<Esc>]50;CursorShape=0\x7"
 
 "coc
 "inoremap <silent><expr><tab> coc#refresh()
-
 
 "inoremap <silent><expr> <TAB>
 "	\coc#pum#visible() ? coc#pum#next(1) :
@@ -110,6 +132,9 @@ let &t_EI = "\<Esc>]50;CursorShape=0\x7"
 "	inoremap <silent><expr> <c-@> coc#refresh()
 "endif
 
+" fcitx
+"let g:fcitx5_remote=1
+set ttimeoutlen=100
 
 "markdown
 let g:mkdp_auto_start = 0
@@ -120,11 +145,3 @@ let g:mkdp_browser = '/usr/bin/firefox'
 map sm :MarkdownPreview<CR>
 map sn :MarkdownPreviewStop<CR>
 
-
-set termguicolors
-
-"opaque
-let g:SnazzyTransparent = 1
-
-color snazzy
-let g:airline_theme='base16_dracula'
