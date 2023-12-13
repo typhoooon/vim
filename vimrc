@@ -34,7 +34,8 @@ set softtabstop=4
 set shiftwidth=4
 set cursorline
 "replace all tab with space
-"set expandtab
+set expandtab
+
 set scrolloff=5
 
 set wrap
@@ -69,7 +70,7 @@ map K 5k
 
 map tx :r !figlet 
 
-nmap Y "+y<CR>
+nmap Y "+y
 
 call plug#begin('~/.vim/plugged')
 "appearance
@@ -91,11 +92,17 @@ Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install()}, 'for': [
 Plug 'dhruvasagar/vim-table-mode', {'on': 'TableModeToggle'}
 Plug 'vimwiki/vimwiki'
 
+"latex
+Plug 'lervag/vimtex'
+
+"start menu
 Plug 'mhinz/vim-startify'
 
-"Plug 'leafOfTree/vim-matchtag'
+Plug 'leafOfTree/vim-matchtag'
 
 Plug 'lilydjwg/fcitx.vim'
+
+Plug 'eluum/vim-autopair'
 
 call plug#end()
 
@@ -133,8 +140,8 @@ let &t_EI = "\<Esc>]50;CursorShape=0\x7"
 "endif
 
 " fcitx
-"let g:fcitx5_remote=1
-set ttimeoutlen=100
+"let g:fcitx5_remote = 1
+set ttimeoutlen =100
 
 "markdown
 let g:mkdp_auto_start = 0
@@ -145,3 +152,8 @@ let g:mkdp_browser = '/usr/bin/firefox'
 map sm :MarkdownPreview<CR>
 map sn :MarkdownPreviewStop<CR>
 
+" latex
+let g:vimtex_view_method = 'zathura'
+let g:vimtex_view_general_viewer = 'zathura'
+
+let g:vimtex_compiler_latexmk_engines = {'_': 'lualatex'}
