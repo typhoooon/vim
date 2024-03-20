@@ -104,6 +104,7 @@ Plug 'lilydjwg/fcitx.vim'
 
 Plug 'eluum/vim-autopair'
 
+Plug 'ryanoasis/vim-devicons'
 call plug#end()
 
 "  Dress up my vim
