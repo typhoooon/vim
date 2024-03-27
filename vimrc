@@ -107,7 +107,7 @@ Plug 'eluum/vim-autopair'
 Plug 'ryanoasis/vim-devicons'
 call plug#end()
 
-"  Dress up my vim
+" Dress up my vim
 map <LEADER>c1 :set background=dark<CR>:colorscheme snazzy<CR>:AirlineTheme base16_dracula<CR>
 map <LEADER>c2 :set background=light<CR>:colorscheme ayu<CR>:AirlineTheme ayu_light<CR>
 map <LEADER>c3 :set background=light<CR>:colorscheme tender<CR>:AirlineTheme tender<CR>
@@ -126,21 +126,12 @@ let &t_SR = "\<Esc>]50;CursorShape=2\x7"
 let &t_EI = "\<Esc>]50;CursorShape=0\x7"
 
 "coc
-"inoremap <silent><expr><tab> coc#refresh()
+"<C-Y> select
+"<C-N> next
+"<C-P> previous
 
-"inoremap <silent><expr> <TAB>
-"	\coc#pum#visible() ? coc#pum#next(1) :
-"	\CheckBackSpace() ? \<Tab>" :
-"	\coc#refresh()
-"inoremap <expr><S-TAB> coc#pum#visible ? coc#pum#prev(1) : \<C-h>"
-"
-"if has('nvim')
-"	inoremap <silent><expr> <c-space> coc#refresh()
-"else
-"	inoremap <silent><expr> <c-@> coc#refresh()
-"endif
 
-" fcitx
+"fcitx
 "let g:fcitx5_remote = 1
 set ttimeoutlen =100
 
@@ -153,8 +144,15 @@ let g:mkdp_browser = '/usr/bin/firefox'
 map sm :MarkdownPreview<CR>
 map sn :MarkdownPreviewStop<CR>
 
-" latex
+"latex
 let g:vimtex_view_method = 'zathura'
 let g:vimtex_view_general_viewer = 'zathura'
 
 let g:vimtex_compiler_latexmk_engines = {'_': 'lualatex'}
+
+"select all and copy
+map <C-A> ggVG"+y
+
+"compile C
+nnoremap <C-S> :wa<CR>:!g++ % -o /tmp/a.out && /tmp/a.out<CR>
+
