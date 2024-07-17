@@ -208,4 +208,32 @@ set conceallevel=0
 map <C-A> ggVG"+y
 
 "compile C
-nnoremap <C-S> :wa<CR>:!g++ % -o /tmp/a.out && /tmp/a.out<CR>
+"nnoremap <C-S> :wa<CR>:!g++ % -o /tmp/a.out && /tmp/a.out<CR>
+
+" Compile function
+map <C-S> :call Compile()<CR>
+func! Compile()
+  exec "w"
+  if &filetype == 'c'
+    exec "!g++ % -o %<"
+    exec "!time ./%<"
+  elseif &filetype == 'cpp'
+    exec "!g++ % -o %<"
+    exec "!time ./%<"
+  elseif &filetype == 'java'
+    exec "!javac %"
+    exec "!time java %<"
+  elseif &filetype == 'sh'
+    :!time bash %
+  elseif &filetype == 'python'
+    silent! exec "!clear"
+    exec "!time python3 %"
+  elseif &filetype == 'html'
+    exec "!firefox % &"
+  elseif &filetype == 'markdown'
+    exec "MarkdownPreview"
+  elseif &filetype == 'vimwiki'
+    exec "MarkdownPreview"
+  endif
+endfunc
+
